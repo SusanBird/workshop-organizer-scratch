@@ -1,9 +1,26 @@
-import { checkAuth, logout } from '../fetch-utils.js';
+import { createParticipant, getWorkshops } from '../fetch-utils.js';
 
-checkAuth();
+const form = document.querySelector('form');
+const selectEl = document.querySelector('select');
 
-const logoutButton = document.getElementById('logout');
+form.addEventListener('submit', async e => {
+    e.preventDefault();
 
-logoutButton.addEventListener('click', () => {
-    logout();
+    const data = new FormData(form);
+
+    await createParticipant(data.get('name'), data.get('workshop_id'));
+});
+
+
+window.addEventListener('load', async () => {
+    const workshops = await getWorkshops();
+
+    for (let workshop of workshops) {
+        const optionEl = document.createElement('option');
+
+        optionEl.textContent = workshop.topic;
+        optionEl.value = workshop.id;
+
+        selectEl.append(optionEl);
+    }
 });
