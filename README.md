@@ -18,7 +18,7 @@ If you work on more than one feature at a time, you are guaranteed to multiply y
 
 ### workshops
 
--   name
+-   topic
 -   id
 -   user_id
 
