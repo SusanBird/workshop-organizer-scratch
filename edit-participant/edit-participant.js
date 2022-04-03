@@ -35,5 +35,3 @@ form.addEventListener('submit', async e => {
 });
 
 
-
-data.get('id'), data.get('name'), data.get('workshop_id')
