@@ -9,6 +9,8 @@ form.addEventListener('submit', async e => {
     const data = new FormData(form);
 
     await createParticipant(data.get('name'), data.get('workshop_id'));
+
+    location.replace('../workshops-list');
 });
 
 

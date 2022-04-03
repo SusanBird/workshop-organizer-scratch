@@ -14,7 +14,7 @@ window.addEventListener('load', async () => {
     const workshops = await getWorkshops();
 
     for (let workshop of workshops) {
-        const workshopEl = await renderWorkshop(workshop);
+        const workshopEl = renderWorkshop(workshop);
 
         workshopsListEl.append(workshopEl);
     }
