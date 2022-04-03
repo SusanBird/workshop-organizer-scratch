@@ -1,7 +1,8 @@
-import { checkAuth, logout, getWorkshops } from '../fetch-utils.js';
+import { checkAuth, logout, getWorkshops, editParticipant } from '../fetch-utils.js';
 
 checkAuth();
 
+const form = document.querySelector('form');
 const logoutButton = document.getElementById('logout');
 const selectEl = document.querySelector('select');
 
@@ -22,3 +23,17 @@ window.addEventListener('load', async () => {
         selectEl.append(optionEl);
     }
 });
+
+form.addEventListener('submit', async e => {
+    e.preventDefault();
+
+    const data = new FormData(form);
+
+    await editParticipant(data.get('id'), data.get('name'), data.get('workshop_id'));
+
+    location.replace('../workshops-list');
+});
+
+
+
+data.get('id'), data.get('name'), data.get('workshop_id')
