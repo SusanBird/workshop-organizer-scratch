@@ -16,12 +16,14 @@
 <body>
     <header>
         <div class="gutter-right logo">
+            <a href="../workshops-list/">Workshops List</a>
+            
         </div>
     </header>    
     <button id="logout">Logout</button>
     <main>
         <h2>Edit Participant</h2>
-        <form>
+        <form id="editForm">
             <label>
                 Name
                 <input name="name" />
@@ -31,10 +33,17 @@
 
                 </select>
             </label>
-            <button>Edit participant</button>
         </form>
-        <a href="../workshops-list/">Workshops List</a>
+        <button id="edit">Edit participant</button>
+        <form id="deleteForm">
+            <label>
+                Name
+                <input name="name" />
+            </label>
+        </form>
+        <button id="delete">Delete participant</button>
     </main>
+    
     <footer>
         <div class="copy gutter-right">&copy; 2021 Alchemy Code Lab</div>
     </footer>

@@ -81,6 +81,19 @@ export async function logout() {
     return (window.location.href = '../');
 }
 
+export async function deleteParticipant(id) {
+
+    const response = await client
+        .from('participants')
+        .delete()
+        .match({ id })
+        .single();
+
+    return response.body;
+
+    // location.replace('./workshops-list');
+}
+
 // function checkError({ data, error }) {
 //     return error ? console.error(error) : data;
 // }
