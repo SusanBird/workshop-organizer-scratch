@@ -14,13 +14,58 @@ If you work on more than one feature at a time, you are guaranteed to multiply y
 1. **Think about how to validate each of your features according to a Definition of Done**
 1. **Consider what features _depend_ on what other features. Use this dependency logic to figure out what order to complete tasks.**
 
-Additional considerations:
+## Data model / schema / table definition
 
--   Ask: which of your HTML elements need to be hard coded, and which need to be dynamically generated?
--   Consider your data model.
-    -   What kinds of objects (i.e., Dogs, Friends, Todos, etc) will you need?
-    -   What are the key/value pairs?
-    -   What arrays might you need?
-    -   What needs to live in a persistence layer?
--   Is there some state we need to initialize?
--   Ask: should any of this work be abstracted into functions? (i.e., is the work complicated? can it be resused?)
+### workshops
+
+-   topic
+-   id
+-   user_id
+
+### participants
+
+-   name
+-   id
+-   workshop_id
+-   user_id
+
+## Auth
+
+-   in template already
+
+## workshops-list page
+
+-   dynamic list of different workshops
+-   each one also contains a list of participants who belong to that workshop
+
+## create-participant page
+
+-   form
+
+### events
+
+-   on submit
+    -   get the data from the form
+    -   use the data to create a new participant
+-   on load
+    -   get data from both tables
+    -   create dropdown
+-   on load
+    -   get workshops, render & append
+
+### functions
+
+-   getWorkshops
+    -   all workshops
+    -   plus all participants and their columns too
+-   getParticipant
+    -   from table, by their user id
+-   createParticipant
+    -   create new participant with name and workshop choice
+-   editParticipant
+    -   update participant workshop choice and name
+-   renderWorkshop
+    -   create elements for workshop
+    -   name it by topic
+    -   append
+    -   participant link
