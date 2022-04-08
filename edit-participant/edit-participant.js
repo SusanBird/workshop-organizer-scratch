@@ -12,7 +12,8 @@ logoutButton.addEventListener('click', () => {
 
 
 window.addEventListener('load', async () => {
-    const workshops = await getWorkshops();
+    const params = new URLSearchParams(window.location.search);
+    const workshops = await getWorkshops(params.get('id'));
 
     for (let workshop of workshops) {
         const optionEl = document.createElement('option');
@@ -27,9 +28,10 @@ window.addEventListener('load', async () => {
 form.addEventListener('submit', async e => {
     e.preventDefault();
 
+    const params = new URLSearchParams(window.location.search);
     const data = new FormData(form);
 
-    await editParticipant(data.get('id'), data.get('name'), data.get('workshop_id'));
+    await editParticipant(params.get('id'), data.get('name'), data.get('workshop_id'));
 
     location.replace('../workshops-list');
 });
